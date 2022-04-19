@@ -1,4 +1,4 @@
-import { screen, render, fireEvent} from '@testing-library/react';
+import { screen, render, fireEvent, getByRole} from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Nav from '../components/Nav';
 
@@ -33,4 +33,16 @@ test('atribute check',()=>{
 
     const input = getByLabelText('Country');
     expect(input).toHaveAttribute('type','text')
+})
+
+test('atribute check',()=>{
+    const { getByLabelText } = render(
+        <BrowserRouter>
+        <Nav navigate={()=>{}}/>
+        </BrowserRouter>
+    );
+
+    const input = screen.getByRole('button')
+    expect(input).toBeInTheDocument()
+    expect(screen.getByRole('textbox')).toBeInTheDocument()
 })
