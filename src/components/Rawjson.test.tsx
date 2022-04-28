@@ -35,6 +35,7 @@ describe('tets for rawjson component',()=>{
         expect(btn).toBeInTheDocument();
 
         fireEvent.click(btn)
+       
     })
 
 })
